@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+ 
+<html>
+  <title>Checker Board</title>
+<body><font face="arial"><center><b><a href="http://www.professionalparanoid.com" target="_blank">www.professionalparanoid.com</a></b></center>
+    <script LANGUAGE="JavaScript">
+        function blam(form) {
+		var iptok = form.inputbox.value;
+		if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(iptok)) {
+		if (document.getElementById('openshodan').checked){		
+		window.open("https://www.shodan.io/search?query="+iptok, "_blank");
+		}
+        if (document.getElementById('openabuseip').checked){		
+		window.open("https://www.abuseipdb.com/check/"+iptok, "_blank");
+		}
+        if (document.getElementById('openwhatitip').checked){		
+		window.open("https://whatismyipaddress.com/ip/"+iptok, "_blank");
+        }
+		if (document.getElementById('opencleantalk').checked){		
+		window.open("https://cleantalk.org/blacklists/"+iptok, "_blank");
+        }
+  		if (document.getElementById('opentalos').checked){		
+		window.open("https://talosintelligence.com/reputation_center/lookup?search="+iptok, "_blank");
+        }
+  		if (document.getElementById('opengoogle').checked){		
+		window.open("https://www.google.com/search?q="+iptok, "_blank");
+        }
+        if (document.getElementById('opentwtr').checked){		
+		window.open("https://twitter.com/search?q="+iptok+"&src=typed_query", "_blank");
+        }
+  
+		} else {
+		alert("whoops need valid ip -check for leading or trailing spaces-")
+		return (false)
+		}
+	}
+	
+	
+	// toggle options
+	function toggle(source) {
+		var checkboxes = document.querySelectorAll('input[group="grp_iprep"]');
+		for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i] != source)
+			checkboxes[i].checked = source.checked;
+		}
+	}
+	function toggle1(source) {
+		var checkboxes = document.querySelectorAll('input[group="grp_ipres"]');
+		for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i] != source)
+			checkboxes[i].checked = source.checked;
+		}
+	}	
+
+
+</script>
+
+<script language="JavaScript">
+<!--
+function worldClock(zone, region){
+var dst = 0
+var time = new Date()
+var gmtMS = time.getTime() + (time.getTimezoneOffset() * 60000)
+var gmtTime = new Date(gmtMS)
+var day = gmtTime.getDate()
+var month = gmtTime.getMonth()
+var year = gmtTime.getYear()
+if(year < 1000){
+year += 1900
+}
+var monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", 
+				"September", "October", "November", "December")
+var monthDays = new Array("31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
+if (year%4 == 0){
+monthDays = new Array("31", "29", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
+}
+if(year%100 == 0 && year%400 != 0){
+monthDays = new Array("31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
+}
+
+var hr = gmtTime.getHours() + zone
+var min = gmtTime.getMinutes()
+var sec = gmtTime.getSeconds()
+
+if (hr >= 24){
+hr = hr-24
+day -= -1
+}
+if (hr < 0){
+hr -= -24
+day -= 1
+}
+if (hr < 10){
+hr = " " + hr
+}
+if (min < 10){
+min = "0" + min
+}
+if (sec < 10){
+sec = "0" + sec
+}
+if (day <= 0){
+if (month == 0){
+	month = 11
+	year -= 1
+	}
+	else{
+	month = month -1
+	}
+day = monthDays[month]
+}
+if(day > monthDays[month]){
+	day = 1
+	if(month == 11){
+	month = 0
+	year -= -1
+	}
+	else{
+	month -= -1
+	}
+}
+//remove regions?
+if (region == "NAmerica"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(3)
+	startDST.setHours(2)
+	startDST.setDate(1)
+	var dayDST = startDST.getDay()
+	if (dayDST != 0){
+		startDST.setDate(8-dayDST)
+		}
+		else{
+		startDST.setDate(1)
+		}
+	endDST.setMonth(9)
+	endDST.setHours(1)
+	endDST.setDate(31)
+	dayDST = endDST.getDay()
+	endDST.setDate(31-dayDST)
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST && currentTime < endDST){
+		dst = 1
+		}
+}
+if (region == "Europe"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(3)
+	startDST.setHours(1)
+	startDST.setDate(13)
+	var dayDST = startDST.getDay()
+	startDST.setDate(31-dayDST)
+	endDST.setMonth(11)
+	endDST.setHours(0)
+	endDST.setDate(6)
+	dayDST = endDST.getDay()
+	endDST.setDate(31-dayDST)
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST && currentTime < endDST){
+		dst = 1
+		}
+}
+
+
+
+
+	
+if (dst == 1){
+	hr -= -1
+	if (hr >= 24){
+	hr = hr-24
+	day -= -1
+	}
+	if (hr < 10){
+	hr = " " + hr
+	}
+	if(day > monthDays[month]){
+	day = 1
+	if(month == 11){
+	month = 0
+	year -= -1
+	}
+	else{
+	month -= -1
+	}
+	}
+//return monthArray[month] + " " + day + ", " + year + "<br>" + hr + ":" + min + ":" + sec + " DST"
+return hr + ":" + min + ":" + sec + " DST"
+}
+else{
+//return monthArray[month] + " " + day + ", " + year + "<br>" + hr + ":" + min + ":" + sec
+return hr + ":" + min + ":" + sec
+}
+}
+
+function worldClockZone(){
+document.getElementById("GMT").innerHTML = worldClock(0, "Greenwich")
+document.getElementById("WashingtonDC").innerHTML = worldClock(-4, "NAmerica")
+
+setTimeout("worldClockZone()", 1000)
+}
+window.onload=worldClockZone;
+
+//-->
+</script>
+
+
+	<style type="text/css">
+	body{
+		margin:0px;
+		background:#F0F0F0;
+		}
+	.hrow span
+	{
+	font-weight:bold;
+	font-size:70;
+	font-color:#a87d07;
+	background-color:#044f18;
+	}
+	.header {
+	height:50px;
+	background:##044f18
+	position:fixed;
+	top:0px;
+	}
+	.content {
+	width=100%;
+	background:##044f18;
+	top:0px;
+	border:0px solid #CCC;
+	padding-top:65px;
+	}
+	
+
+	
+   </style>
+<div class="header">
+<table bgcolor="#044f18"  width="100%">
+
+	<td align="center" class="wclock" width="30%">
+	<font color="#a87d07" size="+5"><b>
+	<span id="WashingtonDC"></span></b></font>
+	<br><font color="#a87d07" size="+1">(tmr)
+	</font>
+
+	
+	<!--<script id="showTime">showTime();</span> -->
+	</td>
+
+<td align="center" width="40%"><font color="#a87d07">
+<center><h1>Checker Board</h1><b>
+sites to check when you're bored</b><p> </p></center></font>
+  </td>
+
+	<td align="center" class="wclock" width="30%">
+	<font color="#a87d07" size="+5"><b>
+	<span id="GMT"></span></b></font>
+	<br> <font color="#a87d07" size="+1">(UTC)</font>
+
+	</td>
+<!--<td align="center" width="30%">
+  
+-->  
+  </table>
+  </div>
+  <div class="content">
+  <table width="100%" border=0 cellpadding=20 cellspacing=0>
+  <tr>
+  <td width=5%> <!-- left border cell -->
+  </td>
+  <td>
+  <form id="ip" method="post" action="">
+  IP to Check: <br><input type="text" name="inputbox" size=16 value="">
+  <input type="button" name="button" value="Sic Em!" onclick="blam(this.form)" />
+  <p>
+  pick your poison:</p>
+  <input type="checkbox" onclick="toggle(this)" /><i><b>IP Reputation Sites</a></b></i><br>
+  <input type="checkbox" onclick="toggle1(this)" /><i><b>IP Research Sites</a></b></i><br><br>
+  
+  <input type="checkbox" class="serchoptions" id="openshodan" group="grp_ipres" group="grp_iprep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
+  <input type="checkbox" class="serchoptions" id="openabuseip" group="grp_iprep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
+  <input type="checkbox" class="serchoptions" id="opencleantalk" group="grp_iprep" group="grp_iprep"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
+  <input type="checkbox" class="serchoptions" id="opengoogle" group="grp_ipres"><a href="https://google.com", target="_blank">google search</a><br>  
+  <input type="checkbox" class="serchoptions" id="openwhatitip" group="grp_ipres"><a href="https://whatismyipaddress.com", target="_blank">WhatIP w Geo</a><br>
+  <input type="checkbox" class="serchoptions" id="opentalos" group="grp_iprep"><a href="https://talosintelligence.com/reputation_center/", target="_blank">Talos Reputation</a><br> 
+
+<input type="checkbox" class="serchoptions" id="opentwtr" group="grp_ipres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
+    <p>
+	<UI>https://spyse.com
+  </td>
+  <td valign="top" align="left">
+  <b>OSINT</b>
+  <br><a href="https://osintframework.com/" target="_blank">OSINT Framework</a><p>
+  <ul><b>Images</b><br>
+  <li><a href="https://images.google.com/" target="_blank">GoogleImages</a>
+  <li><a href="https://pimeyes.com/en" target="_blank">pimeyes</a>
+  <li><a href="https://tineye.com/" target="_blank">tineye</a>
+  </ul>
+  <p>
+  <ul><b>Deep Dive</b><br>
+  <li><a href="https://sf-e9723b0.hx.spiderfoot.net/" target="_blank">SpiderFoot HX</a>
+  <li><a href="http://192.168.0.245:5001/" target="_blank">SpiderFoot</a> (.tmr)
+  <p>
+  <li><a href="https://archive.org/" target=_blank">WayBack Machine</a>
+  </ul>
+  <ul><b>Tool Lists</b><br>
+  <li><a href="  https://www.osinttechniques.com/" target="_blank">OSINT Techniques</a>
+  
+  </td>
+  <td valign="top" align="left">
+  
+  <b>Rando Links<br></b>
+  <p>
+  <ul><b>Pew Pew Maps:<br></b>
+  <li><a href="https://radar.securitywizardry.com/" target=_blank">Security Wizardy</a><br>
+  <li><a href="https://threatbutt.com/map/" target="_blank">threatbutt</a><br>
+  </ul><p>
+  <ul><b>News:<br></b>
+  <li><a href="https://thehackernews.com/" target="hnews">TheHackerNews</a><br>
+  <li><a href="https://threatpost.com/" target="hnews">ThreatPost</a><br>
+  <li><a href="https://www.darkreading.com/" target="drkrd">DarkReading</a><br>
+  <li><a href="https://medium.com/tag/infosec" target="medinfo">Medium Infosec</a><br>
+  <li><a href="https://medium.com/tag/cybersecurity" target="medCyb">Medium CyberSec</a><br>
+  </ul><p>
+ 
+ </td>
+  <td width=5%> <!-- right border cell -->
+  </td>
+  
+  </form>
+  </td>
+  
+  
+  </tr>
+  </table>
+  </div>
+ </body>
+  
+</html>  
