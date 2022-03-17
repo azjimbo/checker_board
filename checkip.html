@@ -5,9 +5,9 @@
  jpc 13 March 2022.
  -->
 <html>
-  <title>Checker Board</title>
-<body><font face="arial"><center><b><a href="http://www.professionalparanoid.com" target="_blank">www.professionalparanoid.com</a></b></center>
-    <script LANGUAGE="JavaScript">
+<head>
+<title>Checker Board</title>
+<script LANGUAGE="JavaScript">
         function blam(form) {
 		var iptok = form.inputbox.value;
 		if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(iptok)) {
@@ -32,7 +32,10 @@
         if (document.getElementById('opentwtr').checked){		
 		window.open("https://twitter.com/search?q="+iptok+"&src=typed_query", "_blank");
         }
-  
+		if (document.getElementById('openhe').checked){		
+		window.open("https://bgp.he.net/ip/"+iptok, "_blank");
+        }
+		
 		} else {
 		alert("whoops need valid ip -check for leading or trailing spaces-")
 		return (false)
@@ -60,7 +63,6 @@
 </script>
 
 <script language="JavaScript">
-<!--
 function worldClock(zone, region){
 var dst = 0
 var time = new Date()
@@ -174,10 +176,6 @@ if (region == "Europe"){
 		}
 }
 
-
-
-
-	
 if (dst == 1){
 	hr -= -1
 	if (hr >= 24){
@@ -217,40 +215,49 @@ window.onload=worldClockZone;
 //-->
 </script>
 
-
 	<style type="text/css">
 	body{
 		margin:0px;
 		background:#F0F0F0;
 		}
+	.header-cont {
+		width:100%;
+		background:#F0F0F0;
+		position:fixed;
+		top:0px;
+	}
+	.header {
+		height:50px;
+		background:#044f18;
+		border:1px solid #ccc;
+		width:960%;
+		margin:0px auto;
+	}
+	.content {
+		width:100%;
+		background:#F0F0F0;
+		top:0px;
+		border:0px solid #CCC;
+		padding-top:130px;
+	}
 	.hrow span
 	{
 	font-weight:bold;
 	font-size:70;
-	font-color:#a87d07;
 	background-color:#044f18;
 	}
-	.header {
-	height:125px;
-	background:#044f18
-	position:fixed;
-	top:0px;
-	}
-	.content {
-	width=100%;
-	background:#F0F0F0;
-	top:0px;
-	border:0px solid #CCC;
-	padding-top:15px;
-	}
-	
 
-	
-   </style>
-<div class="header">
+</style>
+</head>
+<body>
+<font face="arial">
+<div class="header-cont">
+<table bgcolor="#F0F0F0"  width="100%">
+<center><b><a href="http://www.professionalparanoid.com" target="_blank">www.professionalparanoid.com</a></b></center>
+</table>
 <table bgcolor="#044f18"  width="100%">
 
-	<td align="center" class="wclock" width="30%">
+	<td align="center" class="hrow" width="30%">
 	<font color="#a87d07" size="+5"><b>
 	<span id="WashingtonDC"></span></b></font>
 	<br><font color="#a87d07" size="+1">(tmr)
@@ -265,7 +272,7 @@ window.onload=worldClockZone;
 sites to check when you're bored</b><p> </p></center></font>
   </td>
 
-	<td align="center" class="wclock" width="30%">
+	<td align="center" class="hrow" width="30%">
 	<font color="#a87d07" size="+5"><b>
 	<span id="GMT"></span></b></font>
 	<br> <font color="#a87d07" size="+1">(UTC)</font>
@@ -277,7 +284,7 @@ sites to check when you're bored</b><p> </p></center></font>
   </table>
   </div>
   <div class="content">
-  <table width="100%" border=0 cellpadding=20 cellspacing=0>
+  <table width="100%" border=0 cellpadding=20 cellspacing=0 valign="top">
   <tr>
   <td width=5%> <!-- left border cell -->
   </td>
@@ -296,6 +303,9 @@ sites to check when you're bored</b><p> </p></center></font>
   <input type="checkbox" class="serchoptions" id="opengoogle" group="grp_ipres"><a href="https://google.com", target="_blank">google search</a><br>  
   <input type="checkbox" class="serchoptions" id="openwhatitip" group="grp_ipres"><a href="https://whatismyipaddress.com", target="_blank">WhatIP w Geo</a><br>
   <input type="checkbox" class="serchoptions" id="opentalos" group="grp_iprep"><a href="https://talosintelligence.com/reputation_center/", target="_blank">Talos Reputation</a><br> 
+  
+  <input type="checkbox" class="serchoptions" id="openhe" group="grp_ipres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
+  
 
 <input type="checkbox" class="serchoptions" id="opentwtr" group="grp_ipres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
     <p>
@@ -324,17 +334,33 @@ sites to check when you're bored</b><p> </p></center></font>
   
   <b>Rando Links<br></b>
   <p>
-  <ul><b>Pew Pew Maps:<br></b>
+  
+  <details><summary><b>Pew Pew Maps<br></b></summary>
+  
+  <i>because they amuse me</i>
+  <ul>
   <li><a href="https://radar.securitywizardry.com/" target=_blank">Security Wizardy</a><br>
   <li><a href="https://threatbutt.com/map/" target="_blank">threatbutt</a><br>
-  </ul><p>
-  <ul><b>News:<br></b>
+  <li><a href="https://wondernetwork.com/pings" target="_blank">Global Ping Stats</a><br>
+  <li><a href="https://threatmap.checkpoint.com" target=_blank">Checkpoint</a><br>
+  <li><a href="https://securitycenter.sonicwall.com/m/page/worldwide-attacks" target="_blank">Sonicwall
+  <li><a href="https://www.fireeye.com/cyber-map/threat-map.html" target="_blank">Fireeye</a><br>
+  </a><br>
+  <li><a href="https://www.secureworld.io/industry-news/6-live-cyber-attack-maps" target="_blank">secworl article</a><br>
+  <p></ul>
+  </details>
+  
+  <details><summary><b>News<br></b></summary>
+  <ul>
   <li><a href="https://thehackernews.com/" target="hnews">TheHackerNews</a><br>
   <li><a href="https://threatpost.com/" target="hnews">ThreatPost</a><br>
   <li><a href="https://www.darkreading.com/" target="drkrd">DarkReading</a><br>
+  <li><a href="https://www.bleepingcomputer.com/news/security/" target="bleep">Bleeping Computer</a><br>
+  <li><a href="https://www.hackread.com/" target="hackre">Hacker Read</a><br>
   <li><a href="https://medium.com/tag/infosec" target="medinfo">Medium Infosec</a><br>
   <li><a href="https://medium.com/tag/cybersecurity" target="medCyb">Medium CyberSec</a><br>
-  </ul><p>
+  <p></ul>
+  </details>
  <ul><b>Github:<br></b>
   <li><a href="https://github.com/azjimbo/" target="githubazj">My Github</a><br>
   
@@ -351,6 +377,7 @@ sites to check when you're bored</b><p> </p></center></font>
   </tr>
   </table>
   </div>
+  
  </body>
   
 </html>  
