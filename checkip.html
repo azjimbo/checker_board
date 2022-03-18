@@ -215,6 +215,20 @@ window.onload=worldClockZone;
 //-->
 </script>
 
+<script>
+function opennews()
+{
+    var names = document.getElementsByName('WP1');
+    for(var x = 0; x < names.length; x++)
+    {
+        if(names[x].checked)
+		{
+            window.open(names[x].value);
+        }
+    }
+}
+</script>
+
 	<style type="text/css">
 	body{
 		margin:0px;
@@ -278,9 +292,6 @@ sites to check when you're bored</b><p> </p></center></font>
 	<br> <font color="#a87d07" size="+1">(UTC)</font>
 
 	</td>
-<!--<td align="center" width="30%">
-  
--->  
   </table>
   </div>
   <div class="content">
@@ -288,7 +299,7 @@ sites to check when you're bored</b><p> </p></center></font>
   <tr>
   <td width=5%> <!-- left border cell -->
   </td>
-  <td>
+  <td width=25% valign="top" align="left">
   <form id="ip" method="post" action="">
   IP to Check: <br><input type="text" name="inputbox" size=16 value="">
   <input type="button" name="button" value="Sic Em!" onclick="blam(this.form)" />
@@ -311,7 +322,7 @@ sites to check when you're bored</b><p> </p></center></font>
     <p>
 	<UI>https://spyse.com
   </td>
-  <td valign="top" align="left">
+  <td width=25% valign="top" align="left">
   <b>OSINT</b>
   <br><a href="https://osintframework.com/" target="_blank">OSINT Framework</a><p>
   <ul><b>Images</b><br>
@@ -330,7 +341,7 @@ sites to check when you're bored</b><p> </p></center></font>
   <li><a href="  https://www.osinttechniques.com/" target="_blank">OSINT Techniques</a>
   
   </td>
-  <td valign="top" align="left">
+  <td width=25% valign="top" align="left">
   
   <b>Rando Links<br></b>
   <p>
@@ -349,18 +360,26 @@ sites to check when you're bored</b><p> </p></center></font>
   <li><a href="https://www.secureworld.io/industry-news/6-live-cyber-attack-maps" target="_blank">secworl article</a><br>
   <p></ul>
   </details>
-  
+  <p>
   <details><summary><b>News<br></b></summary>
-  <ul>
-  <li><a href="https://thehackernews.com/" target="hnews">TheHackerNews</a><br>
-  <li><a href="https://threatpost.com/" target="hnews">ThreatPost</a><br>
-  <li><a href="https://www.darkreading.com/" target="drkrd">DarkReading</a><br>
-  <li><a href="https://www.bleepingcomputer.com/news/security/" target="bleep">Bleeping Computer</a><br>
-  <li><a href="https://www.hackread.com/" target="hackre">Hacker Read</a><br>
-  <li><a href="https://medium.com/tag/infosec" target="medinfo">Medium Infosec</a><br>
-  <li><a href="https://medium.com/tag/cybersecurity" target="medCyb">Medium CyberSec</a><br>
-  <p></ul>
-  </details>
+  <button onclick="opennews()">Open Checked</button>
+<ul>
+<input type="checkbox"  name="WP1" checked value="https://thehackernews.com/">	<a href="https://thehackernews.com/" target="_blank"> TheHackerNews</a><br>
+
+<input type="checkbox"  name="WP1" checked value="https://threatpost.com/">	<a href="https://threatpost.com/" target="_blank"> ThreatPost</a><br>
+
+<input type="checkbox"  name="WP1" checked value="https://www.darkreading.com/">	<a href="https://www.darkreading.com/" target="_blank"> DarkReading</a><br>
+
+<input type="checkbox"  name="WP1" checked value="https://www.bleepingcomputer.com/news/security/">	<a href="https://www.bleepingcomputer.com/news/security/" target="_blank"> Bleeping Computer</a><br>
+
+<input type="checkbox"  name="WP1" checked value="https://www.hackread.com/">	<a href="https://www.hackread.com/" target="_blank"> Hacker Read</a><br>
+
+<input type="checkbox"  name="WP1" value="https://medium.com/tag/infosec">	<a href="https://medium.com/tag/infosec" target="_blank"> Medium Infosec</a><br>
+
+<input type="checkbox"  name="WP1" value="https://medium.com/tag/cybersecurity">	<a href="https://medium.com/tag/cybersecurity" target="_blank"> Medium CyberSec</a><br>
+
+ </details>
+ 
  <ul><b>Github:<br></b>
   <li><a href="https://github.com/azjimbo/" target="githubazj">My Github</a><br>
   
