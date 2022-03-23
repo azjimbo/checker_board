@@ -35,6 +35,9 @@
 		if (document.getElementById('openhe').checked){		
 		window.open("https://bgp.he.net/ip/"+iptok, "_blank");
         }
+		if (document.getElementById('openspyse').checked){		
+		window.open("https://spyse.com/search?query="+iptok+"&target=ip", "_blank");
+        }
 		
 		} else {
 		alert("whoops need valid ip -check for leading or trailing spaces-")
@@ -305,22 +308,21 @@ sites to check when you're bored</b><p> </p></center></font>
   <input type="button" name="button" value="Sic Em!" onclick="blam(this.form)" />
   <p>
   pick your poison:</p>
-  <input type="checkbox" onclick="toggle(this)" /><i><b>IP Reputation Sites</a></b></i><br>
-  <input type="checkbox" onclick="toggle1(this)" /><i><b>IP Research Sites</a></b></i><br><br>
+  <input type="checkbox" onclick="toggle1(this)" /><i><b>IP Research Sites</a></b></i><br>
+  <input type="checkbox" onclick="toggle(this)" /><i><b>IP Reputation Sites</a></b></i><br><br>
   
   <input type="checkbox" class="serchoptions" id="openshodan" group="grp_ipres" group="grp_iprep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
-  <input type="checkbox" class="serchoptions" id="openabuseip" group="grp_iprep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
-  <input type="checkbox" class="serchoptions" id="opencleantalk" group="grp_iprep" group="grp_iprep"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
+  <input type="checkbox" class="serchoptions" id="openspyse" group="grp_ipres" group="grp_iprep"><a href="https://spyse.com", target="_blank">spyse</a> <br>
   <input type="checkbox" class="serchoptions" id="opengoogle" group="grp_ipres"><a href="https://google.com", target="_blank">google search</a><br>  
   <input type="checkbox" class="serchoptions" id="openwhatitip" group="grp_ipres"><a href="https://whatismyipaddress.com", target="_blank">WhatIP w Geo</a><br>
+  <input type="checkbox" class="serchoptions" id="openhe" group="grp_ipres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
+  <input type="checkbox" class="serchoptions" id="opentwtr" group="grp_ipres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
+
+  <input type="checkbox" class="serchoptions" id="openabuseip" group="grp_iprep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
+  <input type="checkbox" class="serchoptions" id="opencleantalk" group="grp_iprep" group="grp_iprep"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
   <input type="checkbox" class="serchoptions" id="opentalos" group="grp_iprep"><a href="https://talosintelligence.com/reputation_center/", target="_blank">Talos Reputation</a><br> 
   
-  <input type="checkbox" class="serchoptions" id="openhe" group="grp_ipres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
-  
-
-<input type="checkbox" class="serchoptions" id="opentwtr" group="grp_ipres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
     <p>
-	<UI>https://spyse.com
   </td>
   <td width=25% valign="top" align="left">
   <b>OSINT</b>
@@ -338,7 +340,8 @@ sites to check when you're bored</b><p> </p></center></font>
   <li><a href="https://archive.org/" target=_blank">WayBack Machine</a>
   </ul>
   <ul><b>Tool Lists</b><br>
-  <li><a href="  https://www.osinttechniques.com/" target="_blank">OSINT Techniques</a>
+  <li><a href="https://www.osinttechniques.com/" target="_blank">OSINT Techniques</a>
+  <li><a href="https://github.com/sinwindie/OSINT" target="_blank">sinwindie/OSINT Github</a> 
   
   </td>
   <td width=25% valign="top" align="left">
