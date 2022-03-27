@@ -1,23 +1,23 @@
 <!DOCTYPE html>
- <!-- please don't laugh - I'm self taught on this stuff. 
+ <!--  
  This is a home version of something I built for work; but can't post that because I don't technically own that version.  I've sort of recreated that here with resources available to me from home.  Feel free to adopt this for your own use.
  There is a lot of copy and pasted stuff in there for java and css.  I didn't keep track of where it all came from.  But it all works now.
- jpc 13 March 2022.
+ jpc 27 March 2022.
  -->
 <html>
 <head>
 <title>Checker Board</title>
-<script LANGUAGE="JavaScript">
+  <script LANGUAGE="JavaScript">
         function blam(form) {
 		var iptok = form.inputbox.value;
 		if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(iptok)) {
 		if (document.getElementById('openshodan').checked){		
 		window.open("https://www.shodan.io/search?query="+iptok, "_blank");
-		}
-        if (document.getElementById('openabuseip').checked){		
+	}
+       		if (document.getElementById('openabuseip').checked){		
 		window.open("https://www.abuseipdb.com/check/"+iptok, "_blank");
-		}
-        if (document.getElementById('openwhatitip').checked){		
+	}
+        	if (document.getElementById('openwhatitip').checked){		
 		window.open("https://whatismyipaddress.com/ip/"+iptok, "_blank");
         }
 		if (document.getElementById('opencleantalk').checked){		
@@ -29,7 +29,7 @@
   		if (document.getElementById('opengoogle').checked){		
 		window.open("https://www.google.com/search?q="+iptok, "_blank");
         }
-        if (document.getElementById('opentwtr').checked){		
+        	if (document.getElementById('opentwtr').checked){		
 		window.open("https://twitter.com/search?q="+iptok+"&src=typed_query", "_blank");
         }
 		if (document.getElementById('openhe').checked){		
@@ -37,14 +37,12 @@
         }
 		if (document.getElementById('openspyse').checked){		
 		window.open("https://spyse.com/search?query="+iptok+"&target=ip", "_blank");
-        }
-		
+        }		
 		} else {
 		alert("whoops need valid ip -check for leading or trailing spaces-")
 		return (false)
 		}
 	}
-	
 	
 	// toggle options
 	function toggle(source) {
@@ -62,163 +60,8 @@
 		}
 	}	
 
-
-</script>
-
-<script language="JavaScript">
-function worldClock(zone, region){
-var dst = 0
-var time = new Date()
-var gmtMS = time.getTime() + (time.getTimezoneOffset() * 60000)
-var gmtTime = new Date(gmtMS)
-var day = gmtTime.getDate()
-var month = gmtTime.getMonth()
-var year = gmtTime.getYear()
-if(year < 1000){
-year += 1900
-}
-var monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", 
-				"September", "October", "November", "December")
-var monthDays = new Array("31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
-if (year%4 == 0){
-monthDays = new Array("31", "29", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
-}
-if(year%100 == 0 && year%400 != 0){
-monthDays = new Array("31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
-}
-
-var hr = gmtTime.getHours() + zone
-var min = gmtTime.getMinutes()
-var sec = gmtTime.getSeconds()
-
-if (hr >= 24){
-hr = hr-24
-day -= -1
-}
-if (hr < 0){
-hr -= -24
-day -= 1
-}
-if (hr < 10){
-hr = " " + hr
-}
-if (min < 10){
-min = "0" + min
-}
-if (sec < 10){
-sec = "0" + sec
-}
-if (day <= 0){
-if (month == 0){
-	month = 11
-	year -= 1
-	}
-	else{
-	month = month -1
-	}
-day = monthDays[month]
-}
-if(day > monthDays[month]){
-	day = 1
-	if(month == 11){
-	month = 0
-	year -= -1
-	}
-	else{
-	month -= -1
-	}
-}
-//remove regions?
-if (region == "NAmerica"){
-	var startDST = new Date()
-	var endDST = new Date()
-	startDST.setMonth(3)
-	startDST.setHours(2)
-	startDST.setDate(1)
-	var dayDST = startDST.getDay()
-	if (dayDST != 0){
-		startDST.setDate(8-dayDST)
-		}
-		else{
-		startDST.setDate(1)
-		}
-	endDST.setMonth(9)
-	endDST.setHours(1)
-	endDST.setDate(31)
-	dayDST = endDST.getDay()
-	endDST.setDate(31-dayDST)
-	var currentTime = new Date()
-	currentTime.setMonth(month)
-	currentTime.setYear(year)
-	currentTime.setDate(day)
-	currentTime.setHours(hr)
-	if(currentTime >= startDST && currentTime < endDST){
-		dst = 1
-		}
-}
-if (region == "Europe"){
-	var startDST = new Date()
-	var endDST = new Date()
-	startDST.setMonth(3)
-	startDST.setHours(1)
-	startDST.setDate(13)
-	var dayDST = startDST.getDay()
-	startDST.setDate(31-dayDST)
-	endDST.setMonth(11)
-	endDST.setHours(0)
-	endDST.setDate(6)
-	dayDST = endDST.getDay()
-	endDST.setDate(31-dayDST)
-	var currentTime = new Date()
-	currentTime.setMonth(month)
-	currentTime.setYear(year)
-	currentTime.setDate(day)
-	currentTime.setHours(hr)
-	if(currentTime >= startDST && currentTime < endDST){
-		dst = 1
-		}
-}
-
-if (dst == 1){
-	hr -= -1
-	if (hr >= 24){
-	hr = hr-24
-	day -= -1
-	}
-	if (hr < 10){
-	hr = " " + hr
-	}
-	if(day > monthDays[month]){
-	day = 1
-	if(month == 11){
-	month = 0
-	year -= -1
-	}
-	else{
-	month -= -1
-	}
-	}
-//return monthArray[month] + " " + day + ", " + year + "<br>" + hr + ":" + min + ":" + sec + " DST"
-return hr + ":" + min + ":" + sec + " DST"
-}
-else{
-//return monthArray[month] + " " + day + ", " + year + "<br>" + hr + ":" + min + ":" + sec
-return hr + ":" + min + ":" + sec
-}
-}
-
-function worldClockZone(){
-document.getElementById("GMT").innerHTML = worldClock(0, "Greenwich")
-document.getElementById("WashingtonDC").innerHTML = worldClock(-4, "NAmerica")
-
-setTimeout("worldClockZone()", 1000)
-}
-window.onload=worldClockZone;
-
-//-->
-</script>
-
-<script>
+  </script>
+  <script>
 function opennews()
 {
     var names = document.getElementsByName('WP1');
@@ -230,9 +73,32 @@ function opennews()
         }
     }
 }
-</script>
+  </script>
+  <script type="text/javascript" charset="utf-8">
+    let a;
+    let ltime;
+    setInterval(() => {
+      a = new Date();
+      ltime = a.getHours() + ':' + 
+	  (a.getMinutes() < 10 ? '0' : '') + a.getMinutes() + ':' + 
+	  (a.getSeconds() < 10 ? '0' : '')+ a.getSeconds();	  
+      document.getElementById('ltime').innerHTML = ltime;
+    }, 1000);
+  </script>
 
-	<style type="text/css">
+  <script type="text/javascript" charset="utf-8">
+    let b;
+    let utime;
+    setInterval(() => {
+      b = new Date();
+      utime = b.getUTCHours() + ':' + 
+	  (b.getMinutes() < 10 ? '0' : '') + b.getMinutes() + ':' + 
+	  (b.getSeconds() < 10 ? '0' : '')+ b.getSeconds();	  	  
+      document.getElementById('utime').innerHTML = utime;
+    }, 1000);
+  </script>
+ 
+  <style type="text/css">
 	body{
 		margin:0px;
 		background:#F0F0F0;
@@ -261,10 +127,10 @@ function opennews()
 	{
 	font-weight:bold;
 	font-size:70;
-	background-color:#044f18;
+	#background-color:#044f18;
+	background-color:#e5ffcc;
 	}
-
-</style>
+  </style>
 </head>
 <body>
 <font face="arial">
@@ -272,26 +138,25 @@ function opennews()
 <table bgcolor="#F0F0F0"  width="100%">
 <center><b><a href="http://www.professionalparanoid.com" target="_blank">www.professionalparanoid.com</a></b></center>
 </table>
-<table bgcolor="#044f18"  width="100%">
-
-	<td align="center" class="hrow" width="30%">
+<!--dark green  <table bgcolor="#044f18"  width="100%">  -->
+<table bgcolor="#e5ffcc"  width="100%"> 
+  <td align="center" class="hrow" width="30%">
 	<font color="#a87d07" size="+5"><b>
-	<span id="WashingtonDC"></span></b></font>
-	<br><font color="#a87d07" size="+1">(tmr)
+	<span id="ltime"></span>
+	</b></font>
+
+	<br><font color="#a87d07" size="+1">(local)
 	</font>
+  </td>
 
-	
-	<!--<script id="showTime">showTime();</span> -->
-	</td>
-
-<td align="center" width="40%"><font color="#a87d07">
+  <td align="center" width="40%"><font color="#a87d07">
 <center><h1>Checker Board</h1><b>
 sites to check when you're bored</b><p> </p></center></font>
   </td>
 
 	<td align="center" class="hrow" width="30%">
 	<font color="#a87d07" size="+5"><b>
-	<span id="GMT"></span></b></font>
+	<span id="utime"></span>
 	<br> <font color="#a87d07" size="+1">(UTC)</font>
 
 	</td>
@@ -310,7 +175,7 @@ sites to check when you're bored</b><p> </p></center></font>
   pick your poison:</p>
   <input type="checkbox" onclick="toggle1(this)" /><i><b>IP Research Sites</a></b></i><br>
   <input type="checkbox" onclick="toggle(this)" /><i><b>IP Reputation Sites</a></b></i><br><br>
-  
+	  
   <input type="checkbox" class="serchoptions" id="openshodan" group="grp_ipres" group="grp_iprep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
   <input type="checkbox" class="serchoptions" id="openspyse" group="grp_ipres" group="grp_iprep"><a href="https://spyse.com", target="_blank">spyse</a> <br>
   <input type="checkbox" class="serchoptions" id="opengoogle" group="grp_ipres"><a href="https://google.com", target="_blank">google search</a><br>  
@@ -350,13 +215,13 @@ sites to check when you're bored</b><p> </p></center></font>
   <p>
   
   <details><summary><b>Pew Pew Maps<br></b></summary>
-  
   <i>because they amuse me</i>
+	  
   <ul>
-  <li><a href="https://radar.securitywizardry.com/" target=_blank">Security Wizardy</a><br>
+  <li><a href="https://radar.securitywizardry.com/" target="_blank">Security Wizardy</a><br>
   <li><a href="https://threatbutt.com/map/" target="_blank">threatbutt</a><br>
   <li><a href="https://wondernetwork.com/pings" target="_blank">Global Ping Stats</a><br>
-  <li><a href="https://threatmap.checkpoint.com" target=_blank">Checkpoint</a><br>
+  <li><a href="https://threatmap.checkpoint.com" target="_blank">Checkpoint</a><br>
   <li><a href="https://securitycenter.sonicwall.com/m/page/worldwide-attacks" target="_blank">Sonicwall
   <li><a href="https://www.fireeye.com/cyber-map/threat-map.html" target="_blank">Fireeye</a><br>
   </a><br>
