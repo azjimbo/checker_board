@@ -13,11 +13,11 @@
 		if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(iptok)) {
 		if (document.getElementById('openshodan').checked){		
 		window.open("https://www.shodan.io/search?query="+iptok, "_blank");
-	}
-       		if (document.getElementById('openabuseip').checked){		
+		}
+        if (document.getElementById('openabuseip').checked){		
 		window.open("https://www.abuseipdb.com/check/"+iptok, "_blank");
-	}
-        	if (document.getElementById('openwhatitip').checked){		
+		}
+        if (document.getElementById('openwhatitip').checked){		
 		window.open("https://whatismyipaddress.com/ip/"+iptok, "_blank");
         }
 		if (document.getElementById('opencleantalk').checked){		
@@ -29,7 +29,7 @@
   		if (document.getElementById('opengoogle').checked){		
 		window.open("https://www.google.com/search?q="+iptok, "_blank");
         }
-        	if (document.getElementById('opentwtr').checked){		
+        if (document.getElementById('opentwtr').checked){		
 		window.open("https://twitter.com/search?q="+iptok+"&src=typed_query", "_blank");
         }
 		if (document.getElementById('openhe').checked){		
@@ -144,7 +144,6 @@ function opennews()
 	<font color="#a87d07" size="+5"><b>
 	<span id="ltime"></span>
 	</b></font>
-
 	<br><font color="#a87d07" size="+1">(local)
 	</font>
   </td>
@@ -153,11 +152,12 @@ function opennews()
 <center><h1>Checker Board</h1><b>
 sites to check when you're bored</b><p> </p></center></font>
   </td>
-
 	<td align="center" class="hrow" width="30%">
 	<font color="#a87d07" size="+5"><b>
 	<span id="utime"></span>
-	<br> <font color="#a87d07" size="+1">(UTC)</font>
+	</b></font>
+	<br><font color="#a87d07" size="+1">(UTC)
+	</font>
 
 	</td>
   </table>
@@ -175,7 +175,7 @@ sites to check when you're bored</b><p> </p></center></font>
   pick your poison:</p>
   <input type="checkbox" onclick="toggle1(this)" /><i><b>IP Research Sites</a></b></i><br>
   <input type="checkbox" onclick="toggle(this)" /><i><b>IP Reputation Sites</a></b></i><br><br>
-	  
+  
   <input type="checkbox" class="serchoptions" id="openshodan" group="grp_ipres" group="grp_iprep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
   <input type="checkbox" class="serchoptions" id="openspyse" group="grp_ipres" group="grp_iprep"><a href="https://spyse.com", target="_blank">spyse</a> <br>
   <input type="checkbox" class="serchoptions" id="opengoogle" group="grp_ipres"><a href="https://google.com", target="_blank">google search</a><br>  
@@ -215,8 +215,8 @@ sites to check when you're bored</b><p> </p></center></font>
   <p>
   
   <details><summary><b>Pew Pew Maps<br></b></summary>
+  
   <i>because they amuse me</i>
-	  
   <ul>
   <li><a href="https://radar.securitywizardry.com/" target="_blank">Security Wizardy</a><br>
   <li><a href="https://threatbutt.com/map/" target="_blank">threatbutt</a><br>
