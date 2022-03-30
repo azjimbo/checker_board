@@ -60,6 +60,57 @@
 		}
 	}	
 
+//domain lookup stuff
+        function blamd(form) {
+		var dmntok = form.inputboxd.value;
+		if (document.getElementById('opendshodan').checked){		
+		window.open("https://www.shodan.io/search?query="+dmntok, "_blank");
+		}
+        if (document.getElementById('opendabuseip').checked){		
+		window.open("https://www.abuseipdb.com/check/"+dmntok, "_blank");
+		}
+        if (document.getElementById('opendwhatitip').checked){		
+		window.open("https://whatismyipaddress.com/domain/"+dmntok, "_blank");
+        }
+		if (document.getElementById('opendcleantalk').checked){		
+		window.open("https://cleantalk.org/blacklists/"+dmntok, "_blank");
+        }
+  		if (document.getElementById('opendtalos').checked){		
+		window.open("https://talosintelligence.com/reputation_center/lookup?search="+dmntok, "_blank");
+        }
+  		if (document.getElementById('opendgoogle').checked){		
+		window.open("https://www.google.com/search?q="+dmntok, "_blank");
+        }
+        if (document.getElementById('opendtwtr').checked){		
+		window.open("https://twitter.com/search?q="+dmntok+"&src=typed_query", "_blank");
+        }
+		if (document.getElementById('opendhe').checked){		
+		window.open("https://bgp.he.net/dns/"+dmntok, "_blank");
+        }
+		if (document.getElementById('opendspyse').checked){		
+		window.open("https://spyse.com/search?query="+dmntok+"&target=dns", "_blank");		
+		} 
+	}
+	
+	// toggle options
+	function toggle(source) {
+		var checkboxes = document.querySelectorAll('input[group="grp_dmnrep"]');
+		for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i] != source)
+			checkboxes[i].checked = source.checked;
+		}
+	}
+	function toggle1(source) {
+		var checkboxes = document.querySelectorAll('input[group="grp_dmnres"]');
+		for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i] != source)
+			checkboxes[i].checked = source.checked;
+		}
+	}	
+
+
+
+
   </script>
   <script>
 function opennews()
@@ -79,7 +130,7 @@ function opennews()
     let ltime;
     setInterval(() => {
       a = new Date();
-      ltime = a.getHours() + ':' + 
+      ltime = (a.getHours() < 10 ? '0' : '') + a.getHours() + ':' + 
 	  (a.getMinutes() < 10 ? '0' : '') + a.getMinutes() + ':' + 
 	  (a.getSeconds() < 10 ? '0' : '')+ a.getSeconds();	  
       document.getElementById('ltime').innerHTML = ltime;
@@ -91,7 +142,7 @@ function opennews()
     let utime;
     setInterval(() => {
       b = new Date();
-      utime = b.getUTCHours() + ':' + 
+      utime = (b.getUTCHours() < 10 ? '0' : '') + b.getUTCHours() + ':' + 
 	  (b.getMinutes() < 10 ? '0' : '') + b.getMinutes() + ':' + 
 	  (b.getSeconds() < 10 ? '0' : '')+ b.getSeconds();	  	  
       document.getElementById('utime').innerHTML = utime;
@@ -167,12 +218,12 @@ sites to check when you're bored</b><p> </p></center></font>
   <tr>
   <td width=5%> <!-- left border cell -->
   </td>
-  <td width=25% valign="top" align="left">
+  <td width=25% valign="top" align="left"><!-- left column -->
   <form id="ip" method="post" action="">
   IP to Check: <br><input type="text" name="inputbox" size=16 value="">
   <input type="button" name="button" value="Sic Em!" onclick="blam(this.form)" />
   <p>
-  pick your poison:</p>
+  </p>
   <input type="checkbox" onclick="toggle1(this)" /><i><b>IP Research Sites</a></b></i><br>
   <input type="checkbox" onclick="toggle(this)" /><i><b>IP Reputation Sites</a></b></i><br><br>
   
@@ -189,27 +240,36 @@ sites to check when you're bored</b><p> </p></center></font>
   
     <p>
   </td>
-  <td width=25% valign="top" align="left">
-  <b>OSINT</b>
-  <br><a href="https://osintframework.com/" target="_blank">OSINT Framework</a><p>
-  <ul><b>Images</b><br>
-  <li><a href="https://images.google.com/" target="_blank">GoogleImages</a>
-  <li><a href="https://pimeyes.com/en" target="_blank">pimeyes</a>
-  <li><a href="https://tineye.com/" target="_blank">tineye</a>
-  </ul>
+  <!-- end left column -->
+  <!-- middle column -->
+  <td width=25% valign="top" align="left"> 
+  <form id="ip" method="post" action="">
+  Domain to Check: <br><input type="text" name="inputboxd" size=16 value="">
+  <input type="button" name="button" value="Say Whaaaa?" onclick="blamd(this.form)" />
   <p>
-  <ul><b>Deep Dive</b><br>
-  <li><a href="https://sf-e9723b0.hx.spiderfoot.net/" target="_blank">SpiderFoot HX</a>
-  <li><a href="http://192.168.0.245:5001/" target="_blank">SpiderFoot</a> (.tmr)
-  <p>
-  <li><a href="https://archive.org/" target=_blank">WayBack Machine</a>
-  </ul>
-  <ul><b>Tool Lists</b><br>
-  <li><a href="https://www.osinttechniques.com/" target="_blank">OSINT Techniques</a>
-  <li><a href="https://github.com/sinwindie/OSINT" target="_blank">sinwindie/OSINT Github</a> 
+  </p>
+  <input type="checkbox" onclick="toggle1(this)" /><i><b>Domain Research Sites</a></b></i><br>
+  <input type="checkbox" onclick="toggle(this)" /><i><b>Domain Reputation Sites</a></b></i><br><br>
   
-  </td>
-  <td width=25% valign="top" align="left">
+  <input type="checkbox" class="serchoptions" id="opendshodan" group="grp_dmnres" group="grp_dmnrep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
+  
+
+  <input type="checkbox" class="serchoptions" id="opendspyse" group="grp_dmnres" group="grp_dmnrep"><a href="https://spyse.com", target="_blank">spyse</a> <br>
+  <input type="checkbox" class="serchoptions" id="opendgoogle" group="grp_dmnres"><a href="https://google.com", target="_blank">google search</a><br>  
+  <!--  
+  <input type="checkbox" class="serchoptions" id="opendwhatitip" group="grp_dmnres"><a href="https://whatismyipaddress.com", target="_blank">WhatIP w Geo</a><br>
+  -->
+  <input type="checkbox" class="serchoptions" id="opendhe" group="grp_dmnres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
+  <input type="checkbox" class="serchoptions" id="opendtwtr" group="grp_dmnres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
+
+  <input type="checkbox" class="serchoptions" id="opendabuseip" group="grp_dmnrep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
+  <input type="checkbox" class="serchoptions" id="opendcleantalk" group="grp_dmnrep" group="grp_dmnrep"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
+  <input type="checkbox" class="serchoptions" id="opendtalos" group="grp_dmnrep"><a href="https://talosintelligence.com/reputation_center/", target="_blank">Talos Reputation</a><br> 
+  
+    <p>
+  
+  </td><!-- end middle column -->
+  <td width=25% valign="top" align="left"> <!-- right column -->
   
   <b>Rando Links<br></b>
   <p>
@@ -247,13 +307,31 @@ sites to check when you're bored</b><p> </p></center></font>
 <input type="checkbox"  name="WP1" value="https://medium.com/tag/cybersecurity">	<a href="https://medium.com/tag/cybersecurity" target="_blank"> Medium CyberSec</a><br>
 
  </details>
- 
+  <p>
+  <details><summary><b>OSINT</b></summary>
+  <br><a href="https://osintframework.com/" target="_blank">OSINT Framework</a><p>
+  <ul><b>Images</b><br>
+  <li><a href="https://images.google.com/" target="_blank">GoogleImages</a>
+  <li><a href="https://pimeyes.com/en" target="_blank">pimeyes</a>
+  <li><a href="https://tineye.com/" target="_blank">tineye</a>
+  </ul>
+  <p>
+  <ul><b>Deep Dive</b><br>
+  <li><a href="https://sf-e9723b0.hx.spiderfoot.net/" target="_blank">SpiderFoot HX</a>
+  <li><a href="http://192.168.0.245:5001/" target="_blank">SpiderFoot</a> (.tmr)
+  <p>
+  <li><a href="https://archive.org/" target=_blank">WayBack Machine</a>
+  </ul>
+  <ul><b>Tool Lists</b><br>
+  <li><a href="https://www.osinttechniques.com/" target="_blank">OSINT Techniques</a>
+  <li><a href="https://github.com/sinwindie/OSINT" target="_blank">sinwindie/OSINT Github</a> 
+  </details>
  <ul><b>Github:<br></b>
   <li><a href="https://github.com/azjimbo/" target="githubazj">My Github</a><br>
   
  
  
- </td>
+ </td><!-- end right column -->
   <td width=5%> <!-- right border cell -->
   </td>
   
@@ -266,5 +344,6 @@ sites to check when you're bored</b><p> </p></center></font>
   </div>
   
  </body>
+  <!-- are you really reading my source code?  I did this in notepad++  -->
   
 </html>  
