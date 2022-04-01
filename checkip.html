@@ -17,6 +17,9 @@
         if (document.getElementById('openabuseip').checked){		
 		window.open("https://www.abuseipdb.com/check/"+iptok, "_blank");
 		}
+        if (document.getElementById('opendshld').checked){		
+		window.open("https://dshield.org/ipinfo.html?ip="+iptok, "_blank");
+		}
         if (document.getElementById('openwhatitip').checked){		
 		window.open("https://whatismyipaddress.com/ip/"+iptok, "_blank");
         }
@@ -44,7 +47,7 @@
 		}
 	}
 	
-	// toggle options
+	// toggle ip options
 	function toggle(source) {
 		var checkboxes = document.querySelectorAll('input[group="grp_iprep"]');
 		for (var i = 0; i < checkboxes.length; i++) {
@@ -63,20 +66,18 @@
 //domain lookup stuff
         function blamd(form) {
 		var dmntok = form.inputboxd.value;
+
 		if (document.getElementById('opendshodan').checked){		
 		window.open("https://www.shodan.io/search?query="+dmntok, "_blank");
 		}
         if (document.getElementById('opendabuseip').checked){		
 		window.open("https://www.abuseipdb.com/check/"+dmntok, "_blank");
 		}
-        if (document.getElementById('opendwhatitip').checked){		
-		window.open("https://whatismyipaddress.com/domain/"+dmntok, "_blank");
-        }
 		if (document.getElementById('opendcleantalk').checked){		
 		window.open("https://cleantalk.org/blacklists/"+dmntok, "_blank");
         }
   		if (document.getElementById('opendtalos').checked){		
-		window.open("https://talosintelligence.com/reputation_center/lookup?search="+dmntok, "_blank");
+		window.open("https://talosintelligence.com/reputation_center/lookup?search="+dmntok,"_blank");
         }
   		if (document.getElementById('opendgoogle').checked){		
 		window.open("https://www.google.com/search?q="+dmntok, "_blank");
@@ -88,30 +89,34 @@
 		window.open("https://bgp.he.net/dns/"+dmntok, "_blank");
         }
 		if (document.getElementById('opendspyse').checked){		
-		window.open("https://spyse.com/search?query="+dmntok+"&target=dns", "_blank");		
-		} 
+		window.open("https://spyse.com/search?query="+dmntok+"&target=dns", "_blank");
+		}
+		if (document.getElementById('openddshld').checked){
+		window.open("https://dshield.org/ipinfo.html?ip="+dmntok, "_blank");
+		}
+		else {
+		return (false)
+		}
 	}
 	
-	// toggle options
-	function toggle(source) {
+	// toggle domain options
+	function toggled(source) {
 		var checkboxes = document.querySelectorAll('input[group="grp_dmnrep"]');
 		for (var i = 0; i < checkboxes.length; i++) {
 			if (checkboxes[i] != source)
 			checkboxes[i].checked = source.checked;
 		}
 	}
-	function toggle1(source) {
+
+	function toggle1d(source) {
 		var checkboxes = document.querySelectorAll('input[group="grp_dmnres"]');
-		for (var i = 0; i < checkboxes.length; i++) {
-			if (checkboxes[i] != source)
-			checkboxes[i].checked = source.checked;
+		for (var d = 0; d < checkboxes.length; d++) {
+			if (checkboxes[d] != source)
+			checkboxes[d].checked = source.checked;
 		}
 	}	
 
-
-
-
-  </script>
+ </script>
   <script>
 function opennews()
 {
@@ -126,6 +131,7 @@ function opennews()
 }
   </script>
   <script type="text/javascript" charset="utf-8">
+  //time local
     let a;
     let ltime;
     setInterval(() => {
@@ -135,9 +141,8 @@ function opennews()
 	  (a.getSeconds() < 10 ? '0' : '')+ a.getSeconds();	  
       document.getElementById('ltime').innerHTML = ltime;
     }, 1000);
-  </script>
 
-  <script type="text/javascript" charset="utf-8">
+  //time utc
     let b;
     let utime;
     setInterval(() => {
@@ -148,7 +153,20 @@ function opennews()
       document.getElementById('utime').innerHTML = utime;
     }, 1000);
   </script>
- 
+
+  <script language="JavaScript">
+	var rano_msg = new Array();
+	rano_msg[0] = "sites to check when you're bored";
+	rano_msg[1] = "A poor mans SOAR";
+	rano_msg[2] = "King Me!";
+	rano_msg[3] = "When you're quiet, you can hear the packets";
+	rano_msg[4] = "Follow the white rabbit";
+	rano_msg[5] = "Shall we play a game?";
+	rano_msg[6] = "Wake up Neo";
+	var j = Math.floor(7*Math.random())
+	document.write(rano_msg[j]);
+  </script>
+
   <style type="text/css">
 	body{
 		margin:0px;
@@ -195,14 +213,18 @@ function opennews()
 	<font color="#a87d07" size="+5"><b>
 	<span id="ltime"></span>
 	</b></font>
-	<br><font color="#a87d07" size="+1">(local)
+	<br><font color="#a87d07" size="+1">(Local)
 	</font>
   </td>
 
   <td align="center" width="40%"><font color="#a87d07">
-<center><h1>Checker Board</h1><b>
-sites to check when you're bored</b><p> </p></center></font>
+<center><h1>Checker Board</h1>
+<b>
+sites to check when you're bored
+<!--<span id="rano_msg"></span>-->
+</b><p></p></center></font>
   </td>
+  <!-- optional slogans a poor mans soar -->
 	<td align="center" class="hrow" width="30%">
 	<font color="#a87d07" size="+5"><b>
 	<span id="utime"></span>
@@ -230,6 +252,8 @@ sites to check when you're bored</b><p> </p></center></font>
   <input type="checkbox" class="serchoptions" id="openshodan" group="grp_ipres" group="grp_iprep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
   <input type="checkbox" class="serchoptions" id="openspyse" group="grp_ipres" group="grp_iprep"><a href="https://spyse.com", target="_blank">spyse</a> <br>
   <input type="checkbox" class="serchoptions" id="opengoogle" group="grp_ipres"><a href="https://google.com", target="_blank">google search</a><br>  
+  <input type="checkbox" class="serchoptions" id="opendshld" group="grp_ipres" group="grp_iprep"><a href="https://www.dshield.org", target="_blank">DShield</a><br>
+  
   <input type="checkbox" class="serchoptions" id="openwhatitip" group="grp_ipres"><a href="https://whatismyipaddress.com", target="_blank">WhatIP w Geo</a><br>
   <input type="checkbox" class="serchoptions" id="openhe" group="grp_ipres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
   <input type="checkbox" class="serchoptions" id="opentwtr" group="grp_ipres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
@@ -243,22 +267,18 @@ sites to check when you're bored</b><p> </p></center></font>
   <!-- end left column -->
   <!-- middle column -->
   <td width=25% valign="top" align="left"> 
-  <form id="ip" method="post" action="">
+  <form id="domain" method="post" action="">
   Domain to Check: <br><input type="text" name="inputboxd" size=16 value="">
   <input type="button" name="button" value="Say Whaaaa?" onclick="blamd(this.form)" />
   <p>
   </p>
-  <input type="checkbox" onclick="toggle1(this)" /><i><b>Domain Research Sites</a></b></i><br>
-  <input type="checkbox" onclick="toggle(this)" /><i><b>Domain Reputation Sites</a></b></i><br><br>
+  <input type="checkbox" onclick="toggle1d(this)" /><i><b>Domain Research Sites</a></b></i><br>
+  <input type="checkbox" onclick="toggled(this)" /><i><b>Domain Reputation Sites</a></b></i><br><br>
   
   <input type="checkbox" class="serchoptions" id="opendshodan" group="grp_dmnres" group="grp_dmnrep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
-  
-
   <input type="checkbox" class="serchoptions" id="opendspyse" group="grp_dmnres" group="grp_dmnrep"><a href="https://spyse.com", target="_blank">spyse</a> <br>
   <input type="checkbox" class="serchoptions" id="opendgoogle" group="grp_dmnres"><a href="https://google.com", target="_blank">google search</a><br>  
-  <!--  
-  <input type="checkbox" class="serchoptions" id="opendwhatitip" group="grp_dmnres"><a href="https://whatismyipaddress.com", target="_blank">WhatIP w Geo</a><br>
-  -->
+  <input type="checkbox" class="serchoptions" id="openddshld" group="grp_dmnres" group="grp_dmnrep"><a href="https://dshield.org", target="_blank">DShield</a> <br>
   <input type="checkbox" class="serchoptions" id="opendhe" group="grp_dmnres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
   <input type="checkbox" class="serchoptions" id="opendtwtr" group="grp_dmnres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
 
@@ -328,7 +348,8 @@ sites to check when you're bored</b><p> </p></center></font>
   </details>
  <ul><b>Github:<br></b>
   <li><a href="https://github.com/azjimbo/" target="githubazj">My Github</a><br>
-  
+  <span id="rano_msg"></span> <<<
+ 
  
  
  </td><!-- end right column -->
@@ -343,7 +364,7 @@ sites to check when you're bored</b><p> </p></center></font>
   </table>
   </div>
   
- </body>
+  </body>
   <!-- are you really reading my source code?  I did this in notepad++  -->
   
 </html>  
