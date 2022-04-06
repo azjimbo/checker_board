@@ -38,9 +38,9 @@
 		if (document.getElementById('openhe').checked){		
 		window.open("https://bgp.he.net/ip/"+iptok, "_blank");
         }
-		if (document.getElementById('openspyse').checked){		
-		window.open("https://spyse.com/search?query="+iptok+"&target=ip", "_blank");
-        }		
+//		if (document.getElementById('openspyse').checked){		
+//		window.open("https://spyse.com/search?query="+iptok+"&target=ip", "_blank");
+//       }		
 		} else {
 		alert("whoops need valid ip -check for leading or trailing spaces-")
 		return (false)
@@ -88,12 +88,16 @@
 		if (document.getElementById('opendhe').checked){		
 		window.open("https://bgp.he.net/dns/"+dmntok, "_blank");
         }
-		if (document.getElementById('opendspyse').checked){		
-		window.open("https://spyse.com/search?query="+dmntok+"&target=dns", "_blank");
-		}
+//		if (document.getElementById('opendspyse').checked){		
+//		window.open("https://spyse.com/search?query="+dmntok+"&target=dns", "_blank");
+//		}
 		if (document.getElementById('openddshld').checked){
 		window.open("https://dshield.org/ipinfo.html?ip="+dmntok, "_blank");
 		}
+		if (document.getElementById('opendurlv').checked){
+		window.open("https://www.urlvoid.com/scan/"+dmntok, "_blank");
+		}
+		
 		else {
 		return (false)
 		}
@@ -154,18 +158,7 @@ function opennews()
     }, 1000);
   </script>
 
-  <script language="JavaScript">
-	var rano_msg = new Array();
-	rano_msg[0] = "sites to check when you're bored";
-	rano_msg[1] = "A poor mans SOAR";
-	rano_msg[2] = "King Me!";
-	rano_msg[3] = "When you're quiet, you can hear the packets";
-	rano_msg[4] = "Follow the white rabbit";
-	rano_msg[5] = "Shall we play a game?";
-	rano_msg[6] = "Wake up Neo";
-	var j = Math.floor(7*Math.random())
-	document.write(rano_msg[j]);
-  </script>
+  
 
   <style type="text/css">
 	body{
@@ -220,8 +213,32 @@ function opennews()
   <td align="center" width="40%"><font color="#a87d07">
 <center><h1>Checker Board</h1>
 <b>
-sites to check when you're bored
-<!--<span id="rano_msg"></span>-->
+<!--sites to check when you're bored-->
+
+  <script language="JavaScript">
+ //<!-- if you add a line, change the value in the math.random line (last value +1)
+	var rano_msg = new Array();
+	rano_msg[0] = "sites to check when you're bored";
+	rano_msg[1] = "a poor mans SOAR";
+	rano_msg[2] = "king me!";
+	rano_msg[3] = "when you're quiet, you can hear the packets";
+	rano_msg[4] = "follow the white rabbit";
+	rano_msg[5] = "shall we play a game?";
+	rano_msg[6] = "wake up neo";
+	rano_msg[7] = "we're going to need a bigger boat";
+	rano_msg[8] = "may the force be with you";
+	rano_msg[9] = "whoa, is that supposed to happen?";
+	rano_msg[10] = "beam me up";
+	rano_msg[11] = "warp 9: engage!";
+	rano_msg[12] = "when this thing gets up to 88 mph...";
+	rano_msg[13] = "roads? wHere we're going, we don't need roads.";
+
+	var m = Math.floor(14*Math.random())
+	document.write(rano_msg[m]);
+//-->
+  </script>
+
+<span id="rano_msg"></span>
 </b><p></p></center></font>
   </td>
   <!-- optional slogans a poor mans soar -->
@@ -250,7 +267,9 @@ sites to check when you're bored
   <input type="checkbox" onclick="toggle(this)" /><i><b>IP Reputation Sites</a></b></i><br><br>
   
   <input type="checkbox" class="serchoptions" id="openshodan" group="grp_ipres" group="grp_iprep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
+  <!-- left here for when this Ukraine site comes back
   <input type="checkbox" class="serchoptions" id="openspyse" group="grp_ipres" group="grp_iprep"><a href="https://spyse.com", target="_blank">spyse</a> <br>
+  -->
   <input type="checkbox" class="serchoptions" id="opengoogle" group="grp_ipres"><a href="https://google.com", target="_blank">google search</a><br>  
   <input type="checkbox" class="serchoptions" id="opendshld" group="grp_ipres" group="grp_iprep"><a href="https://www.dshield.org", target="_blank">DShield</a><br>
   
@@ -276,11 +295,14 @@ sites to check when you're bored
   <input type="checkbox" onclick="toggled(this)" /><i><b>Domain Reputation Sites</a></b></i><br><br>
   
   <input type="checkbox" class="serchoptions" id="opendshodan" group="grp_dmnres" group="grp_dmnrep"><a href="https://www.shodan.io", target="_blank">Shodan</a><br>
+  <!-- left here for when this Ukraine site comes back 
   <input type="checkbox" class="serchoptions" id="opendspyse" group="grp_dmnres" group="grp_dmnrep"><a href="https://spyse.com", target="_blank">spyse</a> <br>
+  -->
   <input type="checkbox" class="serchoptions" id="opendgoogle" group="grp_dmnres"><a href="https://google.com", target="_blank">google search</a><br>  
   <input type="checkbox" class="serchoptions" id="openddshld" group="grp_dmnres" group="grp_dmnrep"><a href="https://dshield.org", target="_blank">DShield</a> <br>
   <input type="checkbox" class="serchoptions" id="opendhe" group="grp_dmnres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
   <input type="checkbox" class="serchoptions" id="opendtwtr" group="grp_dmnres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
+  <input type="checkbox" class="serchoptions" id="opendurlv" group="grp_dmnrep" ><a href="https://www.urlvoid.com/", target="_blank">URLVoid</a><br>
 
   <input type="checkbox" class="serchoptions" id="opendabuseip" group="grp_dmnrep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
   <input type="checkbox" class="serchoptions" id="opendcleantalk" group="grp_dmnrep" group="grp_dmnrep"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
@@ -348,11 +370,8 @@ sites to check when you're bored
   </details>
  <ul><b>Github:<br></b>
   <li><a href="https://github.com/azjimbo/" target="githubazj">My Github</a><br>
-  <span id="rano_msg"></span> <<<
- 
- 
- 
- </td><!-- end right column -->
+  
+  </td><!-- end right column -->
   <td width=5%> <!-- right border cell -->
   </td>
   
@@ -366,5 +385,12 @@ sites to check when you're bored
   
   </body>
   <!-- are you really reading my source code?  I did this in notepad++  -->
-  
+ <!-- future list:
+  ipvoid 
+
+urlvoid  https://www.urlvoid.com/scan/bagpipez.com/
+
+archive.org   https://web.archive.org/web/*/bagpipez.com
+
+bsides charm soc panel -->
 </html>  
