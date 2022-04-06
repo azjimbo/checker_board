@@ -94,6 +94,9 @@
 		if (document.getElementById('openddshld').checked){
 		window.open("https://dshield.org/ipinfo.html?ip="+dmntok, "_blank");
 		}
+		if (document.getElementById('opendarchive').checked){
+		window.open("https://web.archive.org/web/*/"+dmntok, "_blank");
+		}
 		if (document.getElementById('opendurlv').checked){
 		window.open("https://www.urlvoid.com/scan/"+dmntok, "_blank");
 		}
@@ -301,11 +304,11 @@ function opennews()
   <input type="checkbox" class="serchoptions" id="opendgoogle" group="grp_dmnres"><a href="https://google.com", target="_blank">google search</a><br>  
   <input type="checkbox" class="serchoptions" id="openddshld" group="grp_dmnres" group="grp_dmnrep"><a href="https://dshield.org", target="_blank">DShield</a> <br>
   <input type="checkbox" class="serchoptions" id="opendhe" group="grp_dmnres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
+  <input type="checkbox" class="serchoptions" id="opendarchive" group="grp_dmnres" group="grp_dmnrep"><a href="https://archive.org", target="_blank">Archive.org</a><br>
   <input type="checkbox" class="serchoptions" id="opendtwtr" group="grp_dmnres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
   <input type="checkbox" class="serchoptions" id="opendurlv" group="grp_dmnrep" ><a href="https://www.urlvoid.com/", target="_blank">URLVoid</a><br>
-
   <input type="checkbox" class="serchoptions" id="opendabuseip" group="grp_dmnrep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
-  <input type="checkbox" class="serchoptions" id="opendcleantalk" group="grp_dmnrep" group="grp_dmnrep"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
+  <input type="checkbox" class="serchoptions" id="opendcleantalk" group="grp_dmnrep" group="grp_dmnres"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
   <input type="checkbox" class="serchoptions" id="opendtalos" group="grp_dmnrep"><a href="https://talosintelligence.com/reputation_center/", target="_blank">Talos Reputation</a><br> 
   
     <p>
