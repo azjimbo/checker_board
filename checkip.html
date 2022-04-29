@@ -3,6 +3,8 @@
  This is a home version of something I built for work; but can't post that because I don't technically own that version.  I've sort of recreated that here with resources available to me from home.  Feel free to adopt this for your own use.
  There is a lot of copy and pasted stuff in there for java and css.  I didn't keep track of where it all came from.  But it all works now.
  jpc 27 March 2022.
+ 
+ todo:  at the bottom
  -->
 <html>
 <head>
@@ -99,8 +101,10 @@
 		}
 		if (document.getElementById('opendurlv').checked){
 		window.open("https://www.urlvoid.com/scan/"+dmntok, "_blank");
+		}		
+		if (document.getElementById('openddtool').checked){
+		window.open("https:/whois.domaintools.com/"+dmntok, "_blank");
 		}
-		
 		else {
 		return (false)
 		}
@@ -306,6 +310,7 @@ function opennews()
   <input type="checkbox" class="serchoptions" id="opendhe" group="grp_dmnres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
   <input type="checkbox" class="serchoptions" id="opendarchive" group="grp_dmnres" group="grp_dmnrep"><a href="https://archive.org", target="_blank">Archive.org</a><br>
   <input type="checkbox" class="serchoptions" id="opendtwtr" group="grp_dmnres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
+   <input type="checkbox" class="serchoptions" id="openddtool" group="grp_dmnres"><a href="https://domaintools.com", target="_blank">Domain Tools</a><br>  
   <input type="checkbox" class="serchoptions" id="opendurlv" group="grp_dmnrep" ><a href="https://www.urlvoid.com/", target="_blank">URLVoid</a><br>
   <input type="checkbox" class="serchoptions" id="opendabuseip" group="grp_dmnrep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
   <input type="checkbox" class="serchoptions" id="opendcleantalk" group="grp_dmnrep" group="grp_dmnres"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
@@ -321,7 +326,7 @@ function opennews()
   
   <details><summary><b>Pew Pew Maps<br></b></summary>
   
-  <i>because they amuse me</i>
+  <font size="-1"><i>because they amuse me</i></font>
   <ul>
   <li><a href="https://radar.securitywizardry.com/" target="_blank">Security Wizardy</a><br>
   <li><a href="https://threatbutt.com/map/" target="_blank">threatbutt</a><br>
@@ -353,6 +358,16 @@ function opennews()
 
  </details>
   <p>
+  <details><summary><b>TYHAC<br></b></summary>
+  
+  <font size="-1"><i>turn your head and cough<br>(other things to check)</i></font>
+  <ul>
+  <li><a href="http://www.browser-info.net/useragent" target="_blank">Browser-info useragent</a><br>
+  <li><a href="https://www.google.com/search?q=what+is+my+ip" target="_blank">google what is my IP</a><br>
+  <li><a href="https://geotargetly.com/my-ip-geolocation" target="_blank">Geo Locate Your IP</a>
+  </details>
+
+  <p>
   <details><summary><b>OSINT</b></summary>
   <br><a href="https://osintframework.com/" target="_blank">OSINT Framework</a><p>
   <ul><b>Images</b><br>
@@ -365,15 +380,17 @@ function opennews()
   <li><a href="https://sf-e9723b0.hx.spiderfoot.net/" target="_blank">SpiderFoot HX</a>
   <li><a href="http://192.168.0.245:5001/" target="_blank">SpiderFoot</a> (.tmr)
   <p>
-  <li><a href="https://archive.org/" target=_blank">WayBack Machine</a>
+  <li><a href="https://archive.org/" target="_blank">WayBack Machine</a>
   </ul>
   <ul><b>Tool Lists</b><br>
   <li><a href="https://www.osinttechniques.com/" target="_blank">OSINT Techniques</a>
   <li><a href="https://github.com/sinwindie/OSINT" target="_blank">sinwindie/OSINT Github</a> 
+  </ul>
   </details>
- <ul><b>Github:<br></b>
-  <li><a href="https://github.com/azjimbo/" target="githubazj">My Github</a><br>
-  
+  <p>
+ <b>Github:<br></b>
+  <a href="https://github.com/azjimbo/" target="githubazj">My Github</a><br>
+ 
   </td><!-- end right column -->
   <td width=5%> <!-- right border cell -->
   </td>
@@ -389,11 +406,8 @@ function opennews()
   </body>
   <!-- are you really reading my source code?  I did this in notepad++  -->
  <!-- future list:
-  ipvoid 
 
-urlvoid  https://www.urlvoid.com/scan/bagpipez.com/
+  <li><a href="" target="_blank"></a>
 
-archive.org   https://web.archive.org/web/*/bagpipez.com
-
-bsides charm soc panel -->
+-->
 </html>  
