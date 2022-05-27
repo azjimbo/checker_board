@@ -2,7 +2,7 @@
  <!--  
  This is a home version of something I built for work; but can't post that because I don't technically own that version.  I've sort of recreated that here with resources available to me from home.  Feel free to adopt this for your own use.
  There is a lot of copy and pasted stuff in there for java and css.  I didn't keep track of where it all came from.  If you recognize something you wrote, thank you!  
- jpc 27 March 2022.
+ jpc first upload: 27 March 2022.
  
  todo:  at the bottom
  -->
@@ -264,7 +264,7 @@ function opennews()
   </td>
   <td width=25% valign="top" align="left"><!-- left column -->
   <form id="ip" method="post" action="">
-  IP to Check: <br><input type="text" name="inputbox" size=16 value="">
+  <b>IP to Check: </b><br><input type="text" name="inputbox" size=16 value="">
   <input type="button" name="button" value="Sic Em!" onclick="blam(this.form)" />
   <p>
   </p>
@@ -292,7 +292,7 @@ function opennews()
   <!-- middle column -->
   <td width=25% valign="top" align="left"> 
   <form id="domain" method="post" action="">
-  Domain to Check: <br><input type="text" name="inputboxd" size=16 value="">
+  <b>Domain to Check: </b><br><input type="text" name="inputboxd" size=16 value="">
   <input type="button" name="button" value="Say Whaaaa?" onclick="blamd(this.form)" />
   <p>
   </p>
@@ -306,7 +306,7 @@ function opennews()
   <input type="checkbox" class="serchoptions" id="opendgoogle" group="grp_dmnres"><a href="https://google.com", target="_blank">google search</a><br>  
   <input type="checkbox" class="serchoptions" id="openddshld" group="grp_dmnres" group="grp_dmnrep"><a href="https://dshield.org", target="_blank">DShield</a> <br>
   <input type="checkbox" class="serchoptions" id="opendhe" group="grp_dmnres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
-  <input type="checkbox" class="serchoptions" id="opendarchive" group="grp_dmnres" group="grp_dmnrep"><a href="https://archive.org", target="_blank">Archive.org</a><br>
+  <input type="checkbox" class="serchoptions" id="opendarchive" group="grp_dmnres" group="grp_dmnrep"><a href="https://archive.org", target="_blank">WayBack Machine</a><br>
   <input type="checkbox" class="serchoptions" id="opendtwtr" group="grp_dmnres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
    <input type="checkbox" class="serchoptions" id="openddtool" group="grp_dmnres"><a href="https://domaintools.com", target="_blank">Domain Tools</a><br>  
   <input type="checkbox" class="serchoptions" id="opendurlv" group="grp_dmnrep" ><a href="https://www.urlvoid.com/", target="_blank">URLVoid</a><br>
@@ -335,6 +335,7 @@ function opennews()
   </a><br>
   <li><a href="https://www.secureworld.io/industry-news/6-live-cyber-attack-maps" target="_blank">secworl article</a><br>
   <p></ul>
+  <hr>
   </details>
   <p>
   <details><summary><b>News<br></b></summary>
@@ -353,7 +354,7 @@ function opennews()
 <input type="checkbox"  name="WP1" value="https://medium.com/tag/infosec">	<a href="https://medium.com/tag/infosec" target="_blank"> Medium Infosec</a><br>
 
 <input type="checkbox"  name="WP1" value="https://medium.com/tag/cybersecurity">	<a href="https://medium.com/tag/cybersecurity" target="_blank"> Medium CyberSec</a><br>
-
+<hr>
  </details>
   <p>
   <details><summary><b>TYHAC<br></b></summary>
@@ -363,33 +364,41 @@ function opennews()
   <li><a href="http://www.browser-info.net/useragent" target="_blank">Browser-info useragent</a><br>
   <li><a href="https://www.google.com/search?q=what+is+my+ip" target="_blank">google what is my IP</a><br>
   <li><a href="https://geotargetly.com/my-ip-geolocation" target="_blank">Geo Locate Your IP</a>
+  <hr>
   </details>
 
   <p>
   <details><summary><b>OSINT</b></summary>
   <br><a href="https://osintframework.com/" target="_blank">OSINT Framework</a><p>
-  <ul><b>Images</b><br>
+  
+  <ul><details><summary><b>Images</b><br></summary>
   <li><a href="https://images.google.com/" target="_blank">GoogleImages</a>
   <li><a href="https://pimeyes.com/en" target="_blank">pimeyes</a>
-  <li><a href="https://tineye.com/" target="_blank">tineye</a>
-  </ul>
+  <li><a href="https://tineye.com/" target="_blank">tineye</a><br>
+  <li><a href="https://29a.ch/photo-forensics/" target="_blank">Photo Forensics</a>
+  <hr>
+  </details></ul>
   <p>
-  <ul><b>Deep Dive</b><br>
+  <ul><details><summary><b>Deep Dive</b><br></summary>
   <li><a href="https://sf-e9723b0.hx.spiderfoot.net/" target="_blank">SpiderFoot HX</a>
   <li><a href="http://192.168.0.245:5001/" target="_blank">SpiderFoot</a> (.tmr)
-  <p>
-  <li><a href="https://archive.org/" target="_blank">WayBack Machine</a>
+  <hr>
+  </details><p>
   </ul>
-  <ul><b>Tool Lists</b><br>
+  <ul><details><summary><b>Tool Lists</b><br></summary>
   <li><a href="https://www.osinttechniques.com/" target="_blank">OSINT Techniques</a>
   <li><a href="https://github.com/sinwindie/OSINT" target="_blank">sinwindie/OSINT Github</a> 
-  </ul>
+  </details></ul>
+  <hr>
   </details>
+  
+  
   <p>
   <details><summary><b>BLOT</br></b></summary>
   <font size="-1"><i>big lists of tools<br>(other folks works)</i></font>
   <ul>
   <li><a href="https://start.me/p/q6mw4Q/forensics" target="startme">Forensics List</a>
+  <hr>
   </details>
   <p>
  <b>Github:<br></b>
@@ -418,8 +427,6 @@ https://exifdata.com/
 https://t.co/jMkfcpdv5F
 
 http://exiftool.sourceforge.net/
-
-https://29a.ch/photo-forensics/#forensic-magnifier
 
 https://aperisolve.fr/
 
