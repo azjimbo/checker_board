@@ -3,7 +3,7 @@
  This is a home version of something I built for work; but can't post that because I don't technically own that version.  I've sort of recreated that here with resources available to me from home.  Feel free to adopt this for your own use.
  There is a lot of copy and pasted stuff in there for java and css.  I didn't keep track of where it all came from.  If you recognize something you wrote, thank you!  
  jpc 27 March 2022.
- 
+ Updated 5 Jan 2025 with dark mode.
  todo:  at the bottom
  -->
 <html>
@@ -34,8 +34,8 @@
   		if (document.getElementById('opengoogle').checked){		
 		window.open("https://www.google.com/search?q="+iptok, "_blank");
         }
-        if (document.getElementById('opentwtr').checked){		
-		window.open("https://twitter.com/search?q="+iptok+"&src=typed_query", "_blank");
+        if (document.getElementById('opencen').checked){		
+		window.open("https://search.censys.io/hosts/"+iptok, "_blank");
         }
 		if (document.getElementById('openhe').checked){		
 		window.open("https://bgp.he.net/ip/"+iptok, "_blank");
@@ -90,8 +90,8 @@
   		if (document.getElementById('opendgoogle').checked){		
 		window.open("https://www.google.com/search?q="+dmntok, "_blank");
         }
-        if (document.getElementById('opendtwtr').checked){		
-		window.open("https://twitter.com/search?q="+dmntok+"&src=typed_query", "_blank");
+        if (document.getElementById('opendcen').checked){		
+		window.open("https://search.censys.io/hosts/"+dmntok, "_blank");
         }
 		if (document.getElementById('opendhe').checked){		
 		window.open("https://bgp.he.net/dns/"+dmntok, "_blank");
@@ -173,15 +173,23 @@ function opennews()
 
   <style type="text/css">
 	body{
-		margin:0px;
+		margin:15px;
 		background:#F0F0F0;
+		color: black;
+		font-family: "arial","Times",serif;
 		}
 	.header-cont {
 		width:100%;
-		background:#F0F0F0;
 		position:fixed;
 		top:0px;
 	}
+	.dark-mode{
+		background: #363738;
+		color: #F0F0F0;
+		font-family: "arial","Times",serif;
+		a:visited {color:#D272F7;}
+		a:link {color:#42F5F5;}
+		}
 	.header {
 		height:50px;
 		background:#044f18;
@@ -191,27 +199,45 @@ function opennews()
 	}
 	.content {
 		width:100%;
-		background:#F0F0F0;
 		top:0px;
 		border:0px solid #CCC;
 		padding-top:130px;
 	}
-	.hrow span
-	{
-	font-weight:bold;
-	font-size:70;
-	#background-color:#044f18;
-	background-color:#e5ffcc;
+	.hrow span{
+		font-weight:bold;
+		font-size:70;
+		#background-color:#044f18;
+		background-color:#e5ffcc;
+	}
+	input[type=text]{
+		font-weight:bold;
+		background-color:#E5FFCC;
+	}
+	input[type="checkbox"] {
+		width:1em;
+		height:1rem;
+		color:#e5ffcc;
+		background-color: #e5ffcc;
+		accent-color:green;
 	}
   </style>
 </head>
 <body>
 <font face="arial">
 <div class="header-cont">
-<table bgcolor="#F0F0F0"  width="100%">
+<table width="100%">
+<div>
+<td width="15%">
+  <button onclick="batmanToggle()">Dark Mode</button>
+  </td>
+  <td>
 <center><b><a href="http://www.professionalparanoid.com" target="_blank">www.professionalparanoid.com</a></b></center>
+</td>
+<td width="15%">
+</td>
+</div>
 </table>
-<!--dark green  <table bgcolor="#044f18"  width="100%">  -->
+
 <table bgcolor="#e5ffcc"  width="100%"> 
   <td align="center" class="hrow" width="30%">
 	<font color="#a87d07" size="+5"><b>
@@ -243,8 +269,9 @@ function opennews()
 	rano_msg[11] = "warp 9: engage!";
 	rano_msg[12] = "when this thing gets up to 88 mph...";
 	rano_msg[13] = "roads? wHere we're going, we don't need roads.";
+	rano_msg[14] = "goonies never say die.";
 
-	var m = Math.floor(14*Math.random())
+	var m = Math.floor(15*Math.random())
 	document.write(rano_msg[m]);
 //-->
   </script>
@@ -286,7 +313,7 @@ function opennews()
   
   <input type="checkbox" class="serchoptions" id="openwhatitip" group="grp_ipres"><a href="https://whatismyipaddress.com", target="_blank">WhatIP w Geo</a><br>
   <input type="checkbox" class="serchoptions" id="openhe" group="grp_ipres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
-  <input type="checkbox" class="serchoptions" id="opentwtr" group="grp_ipres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
+  <input type="checkbox" class="serchoptions" id="opencen" group="grp_ipres"><a href="https://search.censys.io/", target="_blank">Censys IO</a><br> 
 
   <input type="checkbox" class="serchoptions" id="openabuseip" group="grp_iprep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
   <input type="checkbox" class="serchoptions" id="opencleantalk" group="grp_iprep" group="grp_iprep"><a href="https://cleantalk.org", target="_blank">CleanTalk</a><br>
@@ -318,7 +345,7 @@ function opennews()
   <input type="checkbox" class="serchoptions" id="openddshld" group="grp_dmnres" group="grp_dmnrep"><a href="https://dshield.org", target="_blank">DShield</a> <br>
   <input type="checkbox" class="serchoptions" id="opendhe" group="grp_dmnres"><a href="https://bgp.he.net", target="_blank">Hurricane Electric</a><br> 
   <input type="checkbox" class="serchoptions" id="opendarchive" group="grp_dmnres" group="grp_dmnrep"><a href="https://archive.org", target="_blank">WayBack Machine</a><br>
-  <input type="checkbox" class="serchoptions" id="opendtwtr" group="grp_dmnres"><a href="https://twitter.com", target="_blank">Twitter</a><br> 
+  <input type="checkbox" class="serchoptions" id="opendcen" group="grp_dmnres"><a href="https://search.censys.io/hosts/", target="_blank">Censys IO</a><br> 
    <input type="checkbox" class="serchoptions" id="openddtool" group="grp_dmnres"><a href="https://domaintools.com", target="_blank">Domain Tools</a><br>  
   <input type="checkbox" class="serchoptions" id="opendurlv" group="grp_dmnrep" ><a href="https://www.urlvoid.com/", target="_blank">URLVoid</a><br>
   <input type="checkbox" class="serchoptions" id="opendabuseip" group="grp_dmnrep" ><a href="https://www.abuseipdb.com", target="_blank">AbuseIP</a><br>
@@ -430,6 +457,27 @@ function opennews()
   </tr>
   </table>
   </div>
+  <script>
+  // Function to toggle dark mode
+  function batmanToggle() {
+    const body = document.body;
+    // Toggle the 'dark-mode' class
+    body.classList.toggle("dark-mode");
+
+    // Save the current theme to localStorage
+    const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+    localStorage.setItem("theme", theme);
+  }
+
+  // On page load, check the saved theme and apply it
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  });
+</script>
+  
   
   </body>
   <!-- are you really reading my source code?  I did this in notepad++  -->
@@ -455,6 +503,7 @@ https://start.me/p/q6mw4Q/forensics
 
 https://github.com/hslatman/awesome-threat-intelligence
 
-https://search.censys.io/hosts/
+https://search.censys.io/hosts/73.173.103.57
+
 -->
 </html>  
